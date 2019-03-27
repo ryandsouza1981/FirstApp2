@@ -4,20 +4,31 @@ import android.view.View;
 
 public class MainActivityPresenter {
 
-    private View view;
+    private PresenterView view;
     private String text;
 
-    public MainActivityPresenter (View view){
+    public MainActivityPresenter (PresenterView view){
         this.view = view;
     }
 
-    public void setDefaultText(String defaultText){
-        text = defaultText;
-        System.out.println(defaultText);
+    public void setDefaultText(String name){
+        text = "Hello " + name;
+        view.setText(text)
     }
 
-    public interface View{
 
+
+
+    public void calculateNewState(inputFromView: String) {
+        //logic logic logic
+
+        presenterView.setColor(color);
+        presenterView.setFontsize(fontsize);
+        presenterView.setThingToShow(thing);
+    }
+
+    public interface PresenterView{
+        public void setText(String newText);
     }
 
 
