@@ -8,11 +8,16 @@ import android.widget.EditText
 
 const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
+
+    private var presenter: MainActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        presenter = MainActivityPresenter(this);
+        presenter.setDefaultText("Hello XXX");
     }
 
     fun sendMessage(view: View)
