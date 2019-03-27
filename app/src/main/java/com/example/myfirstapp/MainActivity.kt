@@ -17,11 +17,17 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
         setContentView(R.layout.activity_main)
 
         presenter = MainActivityPresenter(this);
-        presenter.setDefaultText("Hello XXX");
+    }
+
+    override fun setText(newText: String){
+        val textview = findbyId(R.id.ofTextView)
+        textview.setText(newText)
     }
 
     fun sendMessage(view: View)
     {
+        presenter.setDefaultText("XXX");
+
         val editText = findViewById<EditText>(R.id.editText)
         val message = editText.text.toString()
         val intent = Intent(this, DisplayMessageActivity::class.java).apply {
